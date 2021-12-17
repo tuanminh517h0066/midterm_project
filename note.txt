@@ -1,0 +1,19 @@
+{{!-- <p style="padding: 0 24px">Số người online: <strong class="badge badge-danger badge-pill">{{objectLength}}</strong></p> --}}
+              {{!-- {{#if data}}
+                {{#each data}}
+                  <div class="people">
+                    <div class="user">
+                      {{!-- <div class="avatar">C</div> --}}
+                      <div class="user-info">
+                        <div class="user-name">{{this.username}}</div>
+                        <div class="online">{{this.email}}</div>
+                      </div>
+                      <div class="status">
+                        <div class="badge badge-success badge-pill">Đang rảnh</div>
+                      </div>
+                    </div>
+                  </div>
+                {{/each}}  
+              {{else}}
+                <P>No User</P>
+              {{/if}} --}}

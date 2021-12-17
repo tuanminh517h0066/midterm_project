@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Danh sách người dùng</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css    ">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="stylesheets/style.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="row justify-content-center">
+          <div class="col-md-12">
+            <div class="rounded border mt-3 mb-3">
+              <h4 class="text-primary text-center my-5">Danh sách người dùng trực tuyến</h4>
+              <div class="inbox">
+                <div class="inbox__people">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="notify"></div>
+      </div>
+      <div class="col-md-8">
+        <div class="row justify-content-center chat-form" hidden>
+          <div class="col-md-12">
+            <div class="rounded border mt-3 mb-3">
+              <div class="user">
+                <div class="avatar">C</div>
+                <div class="user-info">
+                  <div class="user-name-chat">Phạm Công Chánh</div>
+                  <div class="online">Vừa mới truy cập</div>
+                </div>
+                <div class="actions">
+                  <i class="fas fa-phone-alt"></i>
+                  <i class="fas fa-video"></i>
+                  <i class="fas fa-search"></i>
+                </div>
+              </div>
+              <div class="conversation">
+                <div class="inbox">
+                  <div class="inbox__messages">
+                    {{!-- <div class="messages__history"></div> --}}
+                    
+                  </div>
+                </div>
+              </div>
+              {{!-- <div class="fallback"></div> --}}
+              <form class="message_form">
+                <div class="fallback"></div>
+                <input type="hidden" name="receiver_id" id="receiver_id">
+                <input type="text" class="message_form__input" placeholder="Nhập tin nhắn" />
+                <button class="btn btn-primary message_form__button" type="submit">
+                  Gửi
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+    {{!-- <div id="online-notification" class="alert alert-success d-inline position-fixed small" style="bottom: 20px; left: 20px">
+      <strong>Trần Quang Trí</strong> vừa mới online
+    </div>
+    <div id="offline-notification" class="alert alert-danger d-inline position-fixed small" style="bottom: 20px; right: 20px">
+      <strong>Trần Quang Trí</strong> đã thoát khỏi ứng dụng
+    </div> --}}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.1/socket.io.js"></script>
+  <script src="main.js"></script>
+  {{#with user}}
+  <script>
+    newUserConnected({name:'{{{ name }}}', id:'{{  id }}', avatar:'{{ avatar }}'});
+  </script>
+  {{/with}}
+
+</body>
+
+
+</html>
