@@ -23,9 +23,13 @@ router.post('/chat', userMiddleware.checkAuthenticated, function(req, res, next)
 
 });
 
-/* GET home page. */
+/* GET login page. */
 router.get('/login', userMiddleware.checkNotAuthenticated, function(req, res, next) {
   res.render("login", { title: "Login" });
+});
+
+router.get('/register', function(reg, res) {
+  res.render("register");
 });
 
 router.get('/auth/google', userMiddleware.checkNotAuthenticated ,

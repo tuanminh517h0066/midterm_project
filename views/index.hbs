@@ -14,13 +14,25 @@
 </head>
 
 <body>
+  <div class="header">
+    <div class="row" style="margin: 0;">
+      <div class="col-md-6">
+        <h3 class="text-light" style="font-family: Comic Sans MS; padding-left:20px"><strong>MTB</strong> Online chat</h3>
+      </div>
+      <div class="col-md-6">
+        <a class="active" id="btn_logout" href="#">
+          <i class="fas fa-sign-out-alt"></i> Logout
+        </a>
+      </div>
+    </div>
+  </div>
   <div class="container">
     <div class="row">
       <div class="col-md-4">
         <div class="row justify-content-center">
           <div class="col-md-12">
             <div class="rounded border mt-3 mb-3">
-              <h4 class="text-primary text-center my-5">Danh sách người dùng trực tuyến</h4>
+              {{!-- <h4 class="text-primary text-center my-3">Active Users</h4> --}}
               <div class="inbox">
                 <div class="inbox__people">
                 </div>
@@ -34,16 +46,14 @@
         <div class="row justify-content-center chat-form" hidden>
           <div class="col-md-12">
             <div class="rounded border mt-3 mb-3">
-              <div class="user">
-                <div class="avatar">C</div>
+              <div class="user" style="background-color: rgb(0,0,0, .2);">
+                <div class="avatar"></div>
                 <div class="user-info">
-                  <div class="user-name-chat">Phạm Công Chánh</div>
-                  <div class="online">Vừa mới truy cập</div>
+                  <div class="user-name-chat" style="color: white; font-weight:bold"></div>
+                  <div class="online">Recent access</div>
                 </div>
-                <div class="actions">
-                  <i class="fas fa-phone-alt"></i>
-                  <i class="fas fa-video"></i>
-                  <i class="fas fa-search"></i>
+                <div class="actions" >
+                  </a><i class="far fa-window-close" style="color: white;"></i>
                 </div>
               </div>
               <div class="conversation">
@@ -58,9 +68,9 @@
               <form class="message_form">
                 <div class="fallback"></div>
                 <input type="hidden" name="receiver_id" id="receiver_id">
-                <input type="text" class="message_form__input" placeholder="Nhập tin nhắn" />
+                <input type="text" class="message_form__input" placeholder="Type your message..." />
                 <button class="btn btn-primary message_form__button" type="submit">
-                  Gửi
+                  <i class="fas fa-paper-plane"></i>
                 </button>
               </form>
             </div>

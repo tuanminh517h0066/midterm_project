@@ -37,30 +37,34 @@ const addToUsersBox = (user) => {
 
 
   const userBox = `
-    <div class=" user chat_ib  userlist-${user.id}" data-id="${user.id}" >
-      <div class="avatar">
-        <img src="${user.avatar}">
-      </div>
-      <div class="user-info">
-        <div class="user-name-${user.id}">${user.name} ${me}</div>
-        <div class="online">Truy cập lúc: ${time}'</div>
-      </div>
-      <div class="status">
-        <div class="badge badge-success badge-pill">Đang rảnh</div>
+    <div class="user chat_ib  userlist-${user.id}" data-id="${user.id}" >
+      <div class="row">
+        <div class="user-avatar col-lg-3">
+          <img src="${user.avatar}">
+        </div>
+        <div class="user-info col-lg-7">
+          <div class="user-name-${user.id}"><strong>${user.name}</strong> ${me}</div>
+          <div class="online">Access time: ${time}'</div>
+        </div>
+        <div class="status col-lg-2">
+          <div class="badge badge-success badge-pill">Free</div>
+        </div>
       </div>
     </div>
   `;
   const myBox = `
     <div class=" user chat_ib  userlist-${user.id}" data-id="${user.id}" >
-      <div class="avatar">
-        <img src="${user.avatar}">
-      </div>
-      <div class="user-info">
-        <div class="user-name-${user.id}">${user.name} (You)</div>
-        <div class="online">Truy cập lúc: ${time}'</div>
-      </div>
-      <div class="status">
-        <div class="badge badge-success badge-pill">Đang rảnh</div>
+      <div class="row">
+        <div class="avatar col-lg-3">
+          <img src="${user.avatar}">
+        </div>
+        <div class="user-info col-lg-7">
+          <div class="user-name-${user.id}">${user.name} (You)</div>
+          <div class="online">Access time: ${time}'</div>
+        </div>
+        <div class="status col-lg-2">
+          <div class="badge badge-success badge-pill">Free</div>
+        </div>
       </div>
     </div>
   `;
@@ -68,7 +72,7 @@ const addToUsersBox = (user) => {
   inboxPeople.innerHTML +=  userBox;
 
   let htmlnoti = `<div class="alert alert-success d-inline position-fixed small" style="bottom: 20px; left: 20px;" id="notify-${user.id}">
-    <strong>${user.name}</strong> vua moi online
+    <strong>${user.name}</strong> recently online
     </div>
   `
   notify.innerHTML += htmlnoti;
@@ -89,7 +93,7 @@ socket.on("new user", function (data) {
 });
 
 socket.on("user disconnected", function (userName) {
-  // document.querySelector(`.${userName}-userlist`).remove();
+  document.querySelector(`.${userName}-userlist`).remove();
 });
 
 
@@ -254,6 +258,7 @@ socket.on("chat message", function (data) {
   
   addNewMessage({ user: data.user, message: data.message });
 
+  
   // if(roomID === "" ){
   //   console.log("check nhan roomID"+roomID);
   //   roomID = tempRoomID;
