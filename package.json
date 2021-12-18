@@ -24,7 +24,7 @@
     "morgan": "~1.9.1",
     "node-modules": "^1.0.1",
     "nodemon": "^2.0.15",
-    "passport": "^0.5.1",
+    "passport": "^0.5.2",
     "passport-google-oauth2": "^0.2.0",
     "passport-google-oauth20": "^2.0.0",
     "socket.io": "^4.4.0"

@@ -100,6 +100,7 @@ io.on("connection", function (socket) {
     // var current_user = socket.request.user.username;
     // console.log(user_id);
     // activeUsers[user_id] = user_name
+
     activeUsers.add(data);
 
     console.log(activeUsers);
@@ -132,7 +133,8 @@ io.on("connection", function (socket) {
     console.log(data);
     var anotherSocketId = users[data.to]
     console.log(anotherSocketId)
-
+    data.roomID = data.roomID.split("-")[1] +"-"+ data.roomID.split("-")[0];
+    console.log("roomId server: " + data.roomID );
     io.to(anotherSocketId).emit("chat message", data);
   });
   //event typing
