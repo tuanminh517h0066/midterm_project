@@ -44,10 +44,6 @@ a {
   transition: 0.3s;
 }
 
-/* .user:nth-child(odd) {
-  background-color: #F4F5F7;
-} */
-
 .user:hover {
   
   background-color: rgb(0,0,0, .2);
@@ -64,19 +60,6 @@ img{
   padding: 10px;
 }
 
-/* .avatar {
-  font-weight: bold;
-  font-size: 1.5rem;
-  background-color: deepskyblue;
-  width: 20px;
-  height: 50px;
-  margin-right: 16px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white
-} */
 #hello{
   float:right; 
   top: 50%; 
@@ -123,11 +106,6 @@ img{
   width: 90px;
   text-align: center;
 }
-
-/* .user:hover .avatar {
-  background-color: rgb(7, 142, 204);
-  transition: 0.3s;
-} */
 
 .user:hover .user-name {
   font-weight: 450;
