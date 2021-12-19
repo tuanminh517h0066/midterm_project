@@ -76,9 +76,6 @@ io.use(wrap(passport.session()));
 
 
 
-// io.on("connection", function (socket) {
-//   console.log("Made socket connection");
-// });
 const activeUsers = new Set();
 const users = {};
 
@@ -86,46 +83,25 @@ io.on("connection", function (socket) {
   console.log("Made socket connection");
   console.log(socket.id);
   console.log(socket.request.user);
-  // if (typeof socket.request.user !== 'undefined') { 
   
   //event new user
   socket.on("new user", function (data) {
 
-    // console.log("data nay la"+ data);
-    // console.log(socket.request.user.username)
     socket.userId = data;
-    
-    // var user_name = socket.request.user.username;
-    // var user_id = socket.request.user._id;
-    // var current_user = socket.request.user.username;
-    // console.log(user_id);
-    // activeUsers[user_id] = user_name
 
     activeUsers.add(data);
 
     console.log(activeUsers);
 
 
-    // users[socket.id] = data._id;
-
     users[data.id] = socket.id;
 
     console.log(users);
 
-    // console.log("User", socket.userId, "connected");
     io.emit("new user", [...activeUsers]);
     
-
-    // socket.broadcast.emit('user-connected', [...activeUsers]); 
-
-
-    
-  // }
   });
 
-  // $('#btn_logout').on('click', function() {
-  //   io.emit
-  // })
   //event user disconnect
   socket.on("disconnect", () => {
     activeUsers.delete(socket.userId);

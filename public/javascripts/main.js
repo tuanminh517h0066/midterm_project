@@ -12,14 +12,11 @@ const window_chat = document.getElementById('window-chat');
 let _user = {};
 let roomID = "";
 const newUserConnected = (user) => {
-  // console.log(req.user);
-  // userName = user || `User${M ath.floor(Math.random() * 1000000)}`;
+
   _user = user;
   
   socket.emit('new user',user)
 
-  // socket.emit("new user", userName);
-  //addToUsersBox(user); 
 };
 
 const addToUsersBox = (user) => {
@@ -68,7 +65,6 @@ const addToUsersBox = (user) => {
       </div>
     </div>
   `;
-  // inboxPeople.innerHTML += user.id === _user.id ? myBox : userBox;
   inboxPeople.innerHTML +=  userBox;
 
   let htmlnoti = `<div class="alert alert-success d-inline position-fixed small" style="bottom: 20px; left: 20px;" id="notify-${user.id}">
@@ -107,13 +103,17 @@ socket.on("user disconnected", function (user) {
 
 var className ="";
 var classNameList = [];
+
+$(document).on('click','.fa-window-close', function() {
+  $('.chat-form').attr("hidden",true);
+})
+
 $(document).on('click','.chat_ib', function() {
   var user_id = $(this).data('id');
   console.log("id nguoi nhan:"+ user_id);
   console.log("id nguoi gui:"+ _user.id);
   console.log('check');
   
-  //$(".chat-form").addClass("window-"+user_id);
   $('.chat-form').removeAttr('hidden');
   
 
@@ -122,8 +122,7 @@ $(document).on('click','.chat_ib', function() {
 
   var username = $('.user-name-'+user_id).text()
   $('.user-name-chat').text(username);
-  // console.log(check);
-  // windowChat(username,user_id)
+
 
   var tempRoomID = _user.id  +"-"+ user_id;
 
@@ -134,7 +133,7 @@ $(document).on('click','.chat_ib', function() {
     roomID = tempRoomID;
     className = "messages__history_" + roomID;
     classNameList.push(className);
-    //$('.messages__history').hide();
+
     $(".inbox__messages").append(`
       <div class="${className}"</div>
       `);
@@ -264,46 +263,6 @@ socket.on("chat message", function (data) {
   $('.chat-form').removeAttr('hidden');
   
   addNewMessage({ user: data.user, message: data.message });
-
-  
-  // if(roomID === "" ){
-  //   console.log("check nhan roomID"+roomID);
-  //   roomID = tempRoomID;
-  //   className = "messages__history_" + roomID;
-  //   classNameList.push(className);
-  
-  //   $(".inbox__messages").append(`
-  //     <div class="${className}"</div>
-  //     `);
-  //   messageBox = document.querySelector("."+className);
-  //   console.log("msg: "+ messageBox);
-
-  // }else if(roomID !==  tempRoomID){
-
-  //   console.log("classsNName: "+ className);
-  //   if($("div").hasClass(className) == true){
-  //     $('.'+className).hide();
-  //     console.log("exist");
-  //   }
-
-  //   roomID = tempRoomID;
-  //   className = "messages__history_" + roomID;
-
-  //   if(jQuery.inArray(className, classNameList) !== -1){
-  //     $('.'+className).show();
-      
-  //   }else{
-  //     $('.messages__history').hide();
-  //     $(".inbox__messages").append(`
-  //       <div class="${className}"</div>
-  //       `);
-  //     classNameList.push(className);
-  //   }
-  //   messageBox = document.querySelector("."+className);
-  //   console.log("msg: "+ messageBox);
-  // }
-
-
 
   
 });
