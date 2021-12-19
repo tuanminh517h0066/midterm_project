@@ -32,6 +32,11 @@ router.get('/register', function(reg, res) {
   res.render("register");
 });
 
+router.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/login');
+});
+
 router.get('/auth/google', userMiddleware.checkNotAuthenticated ,
   passport.authenticate('google', { scope:
       [ 'email', 'profile' ] }

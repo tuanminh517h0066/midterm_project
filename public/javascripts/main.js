@@ -92,8 +92,9 @@ socket.on("new user", function (data) {
   data.map((user) => addToUsersBox(user));
 });
 
-socket.on("user disconnected", function (userName) {
-  document.querySelector(`.${userName}-userlist`).remove();
+socket.on("user disconnected", function (user) {
+  document.querySelector(`.userlist-${user.id}`).remove();
+  
 });
 
 
@@ -195,6 +196,8 @@ const addNewMessage = ({ user, message }) => {
   messageBox.innerHTML += user.id === _user.id ? myMsg : receivedMsg;
   scroller.scrollTop = scroller.scrollHeight;
 };
+
+
 
 
 

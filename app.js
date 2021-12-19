@@ -93,7 +93,7 @@ io.on("connection", function (socket) {
 
     // console.log("data nay la"+ data);
     // console.log(socket.request.user.username)
-    // socket.userId = data;
+    socket.userId = data;
     
     // var user_name = socket.request.user.username;
     // var user_id = socket.request.user._id;
@@ -122,6 +122,10 @@ io.on("connection", function (socket) {
     
   // }
   });
+
+  // $('#btn_logout').on('click', function() {
+  //   io.emit
+  // })
   //event user disconnect
   socket.on("disconnect", () => {
     activeUsers.delete(socket.userId);
