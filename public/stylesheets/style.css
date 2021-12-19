@@ -1,7 +1,7 @@
 body {
   /* padding: 50px; */
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background: url("https://images7.alphacoders.com/996/thumb-1920-996873.jpg");
+  background: url("https://4k-wallpapers.net/uploads/posts/2021-02/medium/1614185673_valley-landscape-mountains-gradient-background-colorful-background.jpg");
 }
 
 a {
@@ -18,7 +18,6 @@ a {
    padding: 6px;
    width: 100%;
    text-align: center;
-   text-transform: uppercase;
    transition: 0.5s;
    background-size: 200% auto;
    color: white;            
@@ -78,6 +77,16 @@ img{
   align-items: center;
   color: white
 } */
+#hello{
+  float:right; 
+  top: 50%; 
+  margin: 0; 
+  position: relative; 
+  -ms-transform: translateY(-50%); 
+  transform: translateY(-50%);
+  color: white;
+  padding-right: 20px;
+}
 
 #btn_logout{
   float:right; 
@@ -107,7 +116,7 @@ img{
 
 .user-info .online {
   font-size: 0.9rem;
-  color: rgb(97, 97, 97)
+  color: rgb(55, 180, 122)
 }
 
 .user .status {

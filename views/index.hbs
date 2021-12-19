@@ -23,6 +23,8 @@
         <a class="active" id="btn_logout" href="#">
           <i class="fas fa-sign-out-alt"></i> Logout
         </a>
+        <span id="hello">Hello, <strong>{{user.name}}</strong></span>
+        
       </div>
     </div>
   </div>
@@ -46,14 +48,14 @@
         <div class="row justify-content-center chat-form" hidden>
           <div class="col-md-12">
             <div class="rounded border mt-3 mb-3">
-              <div class="user" style="background-color: rgb(0,0,0, .2);">
+              <div class="user" style="background-color: white">
                 <div class="avatar"></div>
                 <div class="user-info">
-                  <div class="user-name-chat" style="color: white; font-weight:bold"></div>
+                  <div class="user-name-chat" style="font-size: 17px; color: black; font-weight:bold"></div>
                   <div class="online">Recent access</div>
                 </div>
                 <div class="actions" >
-                  </a><i class="far fa-window-close" style="color: white;"></i>
+                  </a><i class="far fa-window-close" ></i>
                 </div>
               </div>
               <div class="conversation">
