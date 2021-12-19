@@ -215,10 +215,7 @@ messageForm.addEventListener("submit", (e) => {
   if (!inputField.value) {
     return;
   }
-
-
-
-
+  
   var to = $('#receiver_id').val();
   console.log("roomID: "+roomID);
   console.log(to);
