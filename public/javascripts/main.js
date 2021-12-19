@@ -83,6 +83,9 @@ const addToUsersBox = (user) => {
 function hide_noti(id) {
   $('#notify-'+id).remove();
 }
+function hide_noti_logout() {
+  $('.noti-logout').remove();
+}
 // new user is created so we generate nickname and emit event
 // newUserConnected();
 
@@ -94,7 +97,11 @@ socket.on("new user", function (data) {
 
 socket.on("user disconnected", function (user) {
   document.querySelector(`.userlist-${user.id}`).remove();
-  
+  let htmlnoti = `<div id="offline-notification" class="alert alert-danger d-inline position-fixed small noti-logout" style="bottom: 20px; right: 20px" ">
+    <strong>${user.name}</strong> đã thoát khỏi ứng dụng
+  </div>`
+  notify.innerHTML += htmlnoti;
+  setTimeout("hide_noti_logout()", 2000)
 });
 
 
