@@ -49,22 +49,7 @@ const addToUsersBox = (user) => {
       </div>
     </div>
   `;
-  const myBox = `
-    <div class=" user chat_ib  userlist-${user.id}" data-id="${user.id}" >
-      <div class="row">
-        <div class="avatar col-lg-3">
-          <img src="${user.avatar}">
-        </div>
-        <div class="user-info col-lg-7">
-          <div class="user-name-${user.id}">${user.name} (You)</div>
-          <div class="online">Access time: ${time}'</div>
-        </div>
-        <div class="status col-lg-2">
-          <div class="badge badge-success badge-pill">Free</div>
-        </div>
-      </div>
-    </div>
-  `;
+  
   inboxPeople.innerHTML +=  userBox;
 
   let htmlnoti = `<div class="alert alert-success d-inline position-fixed small" style="bottom: 20px; left: 20px;" id="notify-${user.id}">
